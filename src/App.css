@@ -1,0 +1,55 @@
+.form-wrapper {
+  background-color: #282b36;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px;
+  width: 40%;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.form-label {
+  color: aliceblue;
+  margin-bottom: 5px;
+}
+
+.form-input {
+  background-color: #3b3f50;
+  border: none;
+  border-radius: 5px;
+  color: aliceblue;
+  font-size: 20px;
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+.form-button {
+  border: none;
+  border-radius: 5px;
+  color: #3b3f50;
+  cursor: pointer;
+  margin: 15px;
+  padding: 8px 16px;
+  transition: background-color 0.3s ease;
+}
+
+.cadastrar-active {
+  background-color: rgb(115, 222, 255);
+  border: none;
+  border-radius: 5px;
+  color: #272b30;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.cadastrar-active:hover {
+  transform: scale(1.1);
+}
+
+.valid-password-check {
+  color: rgb(115, 222, 255);
+}
