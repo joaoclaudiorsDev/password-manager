@@ -51,22 +51,24 @@ function ServiceForm({ onCancel, onAddService }: Props) {
   };
 
   const passwordValidations = [
+    {
+      text: 'Possuir algum caractere especial',
+      isValid: /[!@#$%^&*]/.test(service.password),
+    },
     { text: 'Possuir 8 ou mais caracteres', isValid: service.password.length >= 8 },
     { text: 'Possuir até 16 caracteres', isValid: service.password.length <= 16 },
     {
       text: 'Possuir letras e números',
       isValid: /\d/.test(service.password) && /[a-zA-Z]/.test(service.password),
     },
-    {
-      text: 'Possuir algum caractere especial',
-      isValid: /[!@#$%^&*]/.test(service.password),
-    },
+   
   ];
 
   return (
+    <>
     <form className="form-container" onSubmit={handleSubmit}>
       <label className="form-label" htmlFor="inpt1">
-        Nome do serviço
+        Nome do serviço:
       </label>
       <input
         className="form-input"
@@ -77,7 +79,7 @@ function ServiceForm({ onCancel, onAddService }: Props) {
       />
 
       <label className="form-label" htmlFor="inpt2">
-        Login
+        Login:
       </label>
       <input
         className="form-input"
@@ -88,7 +90,7 @@ function ServiceForm({ onCancel, onAddService }: Props) {
       />
 
       <label className="form-label" htmlFor="inpt3">
-        Senha
+        Senha:
       </label>
       <input
         className="form-input"
@@ -99,7 +101,7 @@ function ServiceForm({ onCancel, onAddService }: Props) {
       />
 
       <label className="form-label" htmlFor="inpt4">
-        URL
+        URL:
       </label>
       <input
         className="form-input"
@@ -108,26 +110,30 @@ function ServiceForm({ onCancel, onAddService }: Props) {
         value={service.url}
         onChange={handleInputChange}
       />
-
-      <ul>
-        {passwordValidations.map(({ text, isValid }, index) => (
-          <li
-            key={index}
-            className={isValid ? 'valid-password-check' : 'invalid-password-check'}
-          >
-            {text}
-          </li>
-        ))}
-      </ul>
-
-      <button className="form-button form-button-cancel" onClick={onCancel}>
-        Cancelar
-      </button>
-
-      <button className={`form-button ${isFormValid ? 'cadastrar-active' : ''}`} disabled={!isFormValid}>
-        Cadastrar
-      </button>
+       <div id="container-ul">
+          <ul>
+            {passwordValidations.map(({ text, isValid }, index) => (
+              <li
+                key={index}
+                className={isValid ? 'valid-password-check' : 'invalid-password-check'}
+              >
+                {text}
+              </li>
+            ))}
+          </ul>
+      </div>
     </form>
+
+    <div className="container-button">
+        <button className="form-button form-button-cancel" onClick={onCancel}>
+          Cancelar
+        </button>
+
+        <button className={`form-button ${isFormValid ? 'cadastrar-active' : ''}`} onClick={onAddService} disabled={!isFormValid}>
+          Cadastrar
+        </button>
+      </div>         
+  </>
   );
 }
 

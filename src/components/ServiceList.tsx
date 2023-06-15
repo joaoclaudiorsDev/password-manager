@@ -28,12 +28,13 @@ function ServiceList({ services, onRemoveService, onAddNewService }: Props) {
           <div className="service-card" key={index}>
             <p>
               service:{' '}
-              <a href={service.url} target="_blank" rel="noopener noreferrer">
+              <a className="visible-password" href={service.url} target="_blank" rel="noopener noreferrer">
                 {service.serviceName}
               </a>
             </p>
-            <p>login:</p>
-            <p>{service.login}</p>
+            <p>
+              login: <span className="visible-password">{service.login}</span>
+            </p>
             <p>
               password: <span className="visible-password">{service.password}</span>
             </p>

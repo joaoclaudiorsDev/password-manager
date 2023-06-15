@@ -19,7 +19,7 @@ function App() {
         <h1> Gerenciador de senhas</h1>
 
       </header>
-      <div>
+      <div className="home">
         {showForm ? (
           <Form onCancel={ handleCancelar } />
         ) : (
